@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: job-allocation-service
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    org.zalando.logbook: TRACE
+
+kafka:
+  topic: job-allocation
+  topicStatus: rider-job-status
+  consumerGroupId: job-allocation-service-group
+  noOfConcurrentMessage: 1 #Move to env variable/config
+  groupInstanceId: ${HOSTNAME}
+
+locationService:
+  path: ${LOCATIONSERVICE_BASE_PATH}
+
+availableRider:
+  path: ${RIDERSERVICE_BASE_PATH}/profile
+
+
+broadcastService:
+  path: ${BROADCASTSERVICE_BASE_PATH}/broadcast
+
+operationsService:
+  path: ${OPERATIONS_SERVICE_BASE_PATH}
+
+redis:
+  primaryNode: ${REDIS_PRIMARY_HOST}
+  readNode: ${REDIS_READ_HOST}
+  ttl: 180
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health
+  metrics:
+    web:
+      server:
+        auto-time-requests: true
+secretsPath: ${SECRETS_PATH}

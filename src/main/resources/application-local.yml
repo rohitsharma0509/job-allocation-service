@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: job-allocation-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/OPS_PLATFORM
+      auto-index-creation: true
+    web:
+      pageable:
+        one-indexed-parameters: true
+
+server:
+  port: 8082
+
+logging:
+  level:
+    root: INFO
+
+COMPANY: "SCB"
+PROJECT_NAME: "rider"
+DIST_TRACER_ENDPOINT: "http://jaeger-operator-jaeger-collector.default:14268/api/traces"
+secretsPath: c:/dev/secrets
+
+kafka:
+  topic: job-allocation
+  topicStatus: rider-job-status
+  consumerGroupId: job-allocation-service-group
+  noOfConcurrentMessage: 3
+  groupInstanceId: groupId
+  partition: 1
+
+
+locationService:
+  path: https://location-service.apps.preprod.riderplatform.com
+
+availableRider:
+  path: https://rider-service.apps.preprod.riderplatform.com
+
+broadcastService:
+  path: https://broadcast-service.apps.preprod.riderplatform.com
+
+operationsService:
+  path: https://operations-service.apps.preprod.riderplatform.com
+
+redis:
+  primaryNode: http://127.0.0.1:6379
+  readNode: http://127.0.0.1:6379

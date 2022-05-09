@@ -1,0 +1,6 @@
+LOCATIONSERVICE_BASE_PATH: "http://location-service.prod:8080"
+RIDERSERVICE_BASE_PATH: "http://rider-service.prod:8080"
+BROADCASTSERVICE_BASE_PATH: "http://broadcast-service.prod:8080"
+OPERATIONS_SERVICE_BASE_PATH: "http://operations-service.prod:8080"
+REDIS_PRIMARY_HOST: rider-prod-elasticache-redis.rwdgg5.ng.0001.apse1.cache.amazonaws.com
+REDIS_READ_HOST:  rider-prod-elasticache-redis-ro.rwdgg5.ng.0001.apse1.cache.amazonaws.com
